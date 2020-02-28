@@ -5,7 +5,7 @@ productVersion = $(version)-$(bldNum)
 ARTIFACTS = build/artifacts/couchbase-exporter
 
 build: $(SOURCE) go.mod
-	for platform in linux darwin ; do \
+	for platform in linux ; do \
 	  echo "Building $$platform binary" ; \
 	  mkdir -p build/$$platform ; \
 	  GOOS=$$platform GOARCH=amd64 CGO_ENABLED=0 GO111MODULE=on go build -ldflags="-s -w" -o bin/$$platform/couchbase-exporter ; \
